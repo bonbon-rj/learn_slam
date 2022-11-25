@@ -13,7 +13,7 @@ int main(void)
     {
         // 读取图片
         boost::format fmt("../%s/%d.%s");
-        now_color = cv::imread((fmt % "simplify_name_rgb" % (i) % "png").str());
+        now_color = cv::imread((fmt % "rgb" % (i) % "png").str());
         if (now_color.empty())
             break;
 
@@ -49,7 +49,7 @@ int main(void)
             }
             points_color.assign(temp_color.begin(), temp_color.end());
             now_keypoints.assign(temp.begin(), temp.end());
-            std::cout << "跟踪到的点数：" << now_keypoints.size() << std::endl;
+            std::cout << "Tracking " << now_keypoints.size() << " points." << std::endl;
 
             //画出keypoints
             if (now_keypoints.size() == 0)
@@ -60,7 +60,7 @@ int main(void)
                 cv::circle(display_img, now_keypoints[j], 2,
                            cv::Scalar(points_color[j][0], points_color[j][1], points_color[j][2]));
             }
-            cv::imshow("circle", display_img);
+            cv::imshow("display", display_img);
             cv::waitKey(1000);
         }
 

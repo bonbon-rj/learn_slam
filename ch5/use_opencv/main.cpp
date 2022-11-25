@@ -4,7 +4,7 @@
 int main(void)
 {
 
-    cv::Mat img = cv::imread("../img.jpg");//注意相对路径按build中写
+    cv::Mat img = cv::imread("../img.png");//注意相对路径按build中写
     if(img.empty()) return -1;
     cv::resize(img,img,cv::Size(256,256));
 

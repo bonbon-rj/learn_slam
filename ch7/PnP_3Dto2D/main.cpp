@@ -105,8 +105,8 @@ int main(void)
 
     //读取图像
     std::vector<cv::Mat> images(2);
-    images[0] = cv::imread("../1.png");
-    images[1] = cv::imread("../2.png");
+    images[0] = cv::imread("../data/1.png");
+    images[1] = cv::imread("../data/2.png");
 
     //特征匹配
     std::vector<std::vector<cv::Point2d>> points_uv(2); //代表两幅图像匹配的像素点
@@ -115,8 +115,8 @@ int main(void)
     //获得2D 3D点
     std::vector<cv::Point3d> points3d;
     std::vector<cv::Point2d> points2d;
-    // cv::Mat depth_img = cv::imread("../1_depth.png", CV_LOAD_IMAGE_UNCHANGED);         //深度图
-    cv::Mat depth_img = cv::imread("../1_depth.png", cv::IMREAD_UNCHANGED);         //深度图  opencv4
+    // cv::Mat depth_img = cv::imread("../data/1_depth.png", CV_LOAD_IMAGE_UNCHANGED);         //深度图
+    cv::Mat depth_img = cv::imread("../data/1_depth.png", cv::IMREAD_UNCHANGED);         //深度图  opencv4
     cv::Mat K = (cv::Mat_<double>(3, 3) << 520.9, 0, 325.1, 0, 521.0, 249.7, 0, 0, 1); //内参
     for (int i = 0; i < points_uv[0].size(); i++)
     {

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
-project(direct_semidense) 
+project(direct_methods) 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_BUILD_TYPE "Release")
 
 # 使用eigen
 include_directories("/usr/include/eigen3")
@@ -18,14 +18,26 @@ include_directories(${CERES_INCLUDE_DIRS})
 find_package( Sophus REQUIRED )
 include_directories( ${Sophus_INCLUDE_DIRS} )
 
-add_executable(${PROJECT_NAME}
-    main.cpp
+#稀疏
+add_executable(direct_sparse
+    direct_sparse.cpp
 )
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(direct_sparse
     ${CERES_LIBRARIES}
     ${OpenCV_LIBS} 
     ${Sophus_LIBRARIES} 
+    Sophus::Sophus
 ) 
 
-# 解决 fatal error: fmt/core.h: 没有那个文件或目录
-target_link_libraries(${PROJECT_NAME} Sophus::Sophus) 
+# 半稠密
+add_executable(direct_semidense
+    direct_semidense.cpp
+)
+target_link_libraries(direct_semidense
+    ${CERES_LIBRARIES}
+    ${OpenCV_LIBS} 
+    ${Sophus_LIBRARIES} 
+    Sophus::Sophus
+) 
+
+

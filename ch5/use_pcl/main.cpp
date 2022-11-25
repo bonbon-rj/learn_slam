@@ -11,7 +11,7 @@ int main(void)
 {
     // // 读取文件夹所有图片可以这样子读取
     // // 但是是乱序的 可能左右相机对应不上 故没采用
-    // std::string dir = "../color_img";
+    // std::string dir = "../color";
     // DIR *dir_ptr = opendir(dir.c_str());
     // if(dir_ptr == NULL) return -1;
 
@@ -30,13 +30,13 @@ int main(void)
     std::vector<cv::Mat> colorImgs, depthImgs; //彩色图和深度图
     for (int i = 0; i < n; i++)
     {
-        boost::format fmt("../%s/%d.%s");
-        colorImgs.push_back(cv::imread((fmt % "color_img" % (i + 1) % "png").str()));
-        depthImgs.push_back(cv::imread((fmt % "depth_img" % (i + 1) % "pgm").str(), -1));
+        boost::format fmt("../data/%s/%d.%s");
+        colorImgs.push_back(cv::imread((fmt % "color" % (i + 1) % "png").str()));
+        depthImgs.push_back(cv::imread((fmt % "depth" % (i + 1) % "pgm").str(), -1));
     }
 
     //读取位姿
-    std::ifstream fin("../pose.txt");
+    std::ifstream fin("../data/pose.txt");
     if (!fin)
         return -1;
     std::vector<Eigen::Isometry3d> poses;

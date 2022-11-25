@@ -63,11 +63,11 @@ int main(void)
     ceres::Solve(options, &problem, &summary);    //求解
 
     //输出结果
-    std::cout << "求解信息：" << std::endl;
+    std::cout << "Solving message:" << std::endl;
     std::cout << summary.BriefReport() << std::endl;
-    std::cout << "求解时间：" << std::endl;
+    std::cout << "Solving time:" << std::endl;
     std::cout << summary.total_time_in_seconds << "s" << std::endl;
-    std::cout << "求解结果：" << std::endl;
+    std::cout << "Solving result:" << std::endl;
     for (auto d : abc)
         std::cout << d << " ";
     std::cout << "\n";

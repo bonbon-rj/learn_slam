@@ -22,8 +22,8 @@ int main(void)
 {
     //读取图像
     std::vector<cv::Mat> images(2);
-    images[0] = cv::imread("../1.png");
-    images[1] = cv::imread("../2.png");
+    images[0] = cv::imread("../data/1.png");
+    images[1] = cv::imread("../data/2.png");
 
     //特征点检测
     std::vector<std::vector<cv::KeyPoint>> keypoints(2);           //关键点

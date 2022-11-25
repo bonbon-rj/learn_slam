@@ -2,11 +2,14 @@
 # -*- coding:utf-8 -*-
 
 import os
+import sys
 
 if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        sys.exit(0)
 
     # 读取data 并根据文件名排序
-    file_dir = "./data/rgb"
+    file_dir = sys.argv[1]
     try:
         rgb = os.listdir(file_dir)
         sort_time_rgb = sorted(rgb, key=lambda x: float(x[:-4]))
@@ -15,7 +18,7 @@ if __name__ == "__main__":
         os.sys.exit(0)
 
     # 检查保存文件夹是否存在
-    save_dir = "./simplify_name_rgb"
+    save_dir = sys.argv[2]
     if not os.path.exists(save_dir):
         os.mkdir(save_dir)
 

@@ -114,7 +114,7 @@ int main(void)
     optimizer.optimize(100);            //最大迭代次数
 
     //输出结果
-    std::cout << "求解结果：" << std::endl;
+    std::cout << "Solving result:" << std::endl;
     std::cout << v->estimate().transpose() << std::endl;
 
     return 0;

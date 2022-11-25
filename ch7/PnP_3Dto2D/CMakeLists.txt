@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(Pnp_3Dto2D) 
+project(PNP_3Dto2D) 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE "Debug")
 
